@@ -10,8 +10,6 @@ Lista::Lista()
 
 Lista::~Lista()
 {
-    this->Limpar();
-    delete this->inicio;
 }
 
 void Lista::Limpar()
@@ -77,7 +75,6 @@ void Lista::InserirFim(std::string item)
 {
     Celula *novoItem = new Celula();
     novoItem->valor = item;
-    std::cout << item << std::endl;
     this->fim->prox = novoItem;
     this->fim = novoItem;
     this->tamanho++;
@@ -141,7 +138,7 @@ std::string Lista::RemoverPosicao(int pos)
         throw "Lista vazia.";
 
     std::string valor;
-    Celula *posicao = Posicionar(pos, true), *aux;
+    Celula *posicao = Posicionar(pos), *aux;
 
     aux = posicao->prox;
     posicao->prox = aux->prox;
